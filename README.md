@@ -11,16 +11,15 @@ Projekt został zaprojektowany jako studium przypadku pokazujące siłę perswaz
 * Podporządkowanie pod założoną tezę okien czasowych, punktów odniesienia oraz typów wizualizacji został skonstruowany tak, aby wywołać u odbiorcy konkretne wrażenie i poprowadzić go przez zaplanowaną ścieżkę argumentacji.
 * Te same dane, odmienne wnioski pokazują, że operując na dokładnie tym samym zbiorze historycznych notowań giełdowych uzyskanych za pomocą Yahoo Finance, można wysnuć skrajnie różne wnioski w zależności od sposobu ich agregacji i prezentacji.
 * Pierwsza część opowieści buduje obraz bezwzględnej hossy i spekulacyjnego bogacenia się na strachu, podczas gdy ostatnia część - bazując na tych samych szeregach czasowych - obala mit trwałych zysków dla większości innowacyjnych spółek.
-
-<img width="1470" height="902" alt="image" src="https://github.com/user-attachments/assets/dee7c6bb-0065-4ef9-8ed1-e1f1093738bc" />
+<img width="241" height="277.5" alt="image" src="https://github.com/user-attachments/assets/ff501a9f-ec16-4330-b706-ef1774db7769" />
 
 # 🎭 3 Akty
 
 Zamiast tradycyjnego dashboardu, w którym wszystkie wskaźniki są widoczne jednocześnie, aplikacja adaptuje klasyczną, trzyaktową strukturę dramaturgiczną znaną z teatru, literatury i filmu. Zastosowanie takiego formatu pełni trzy kluczowe funkcje:
 
-1. Kontrola uwagi odbiorcy
-2. Kontrola i Budowanie napięcia narracyjnego
-3. Demistyfikacja na końcu i pokazanie, jak łatwo ulec iluzji analitycznej, gdy obserwuje się wycinek danych wyrwany z szerszego kontekstu historycznego.
+1. Kontrola uwagi odbiorcy poprzez sekwencyjne dawkowanie informacji.
+2. Budowanie napięcia narracyjnego między początkowym szokiem rynkowym a późniejszym rozliczeniem.
+3. Zdemaskowanie iluzji analitycznej, pokazując jak łatwo o błędne wnioski, gdy bada się wycinek danych wyrwany z szerszego kontekstu.
 
 # 📖 Struktura opowieści: Przewodnik po Aktach
 
@@ -35,7 +34,7 @@ Pierwszy akt pełni rolę ekspozycji, wprowadzając odbiorcę w strukturę rynku
 
 Interaktywna mapa drzewa wygenerowana za pomocą funkcji _geom_treemap()_ prezentuje strukturę sił rynkowych. Wielkość kafelków nie jest wartością statyczną, lecz dynamicznie wyliczanym średnim dziennym obrotem giełdowym _(close * volume)_ z ostatniego roku. Kliknięcie w wybrany podmiot odsłania karty informacyjne z aktualną wyceną i kontekstem historycznym spółki.
 
-<img width="1467" height="899" alt="image" src="https://github.com/user-attachments/assets/13bce189-3a08-497d-9029-27f5b55520d9" />
+<img width="1470" height="902" alt="image" src="https://github.com/user-attachments/assets/dee7c6bb-0065-4ef9-8ed1-e1f1093738bc" />
 
 
 ## Akt 2: Wybuch i Szok (Punkt Zapalny)
@@ -44,7 +43,7 @@ Drugi akt stanowi realizację głównej tezy o kryzysie jako katalizatorze speku
 
 W tym akcie dane są celowo przefiltrowane i znormalizowane tak, aby udowodnić tezę o odrywaniu się wycen sektora medycznego od reszty gospodarki:
 
-* Okno obserwacji i indeksacja: Analiza zostaje zawężona do okresu od 1 roku przed do 2 lat po wybuchu kryzysu, a wyceny spółki oraz indeksu S&P 500 są sprowadzane do wspólnej bazy 100 w dniu ogłoszenia zagrożenia _((close / base_close) * 100)_.
+* Okno obserwacji i indeksacja: Analiza zostaje zawężona do okresu od 1 roku przed do 2 lat po wybuchu kryzysu, a wyceny spółki oraz indeksu S&P 500 są sztucznie zrównywane do poziomu 100 punktów w dniu ogłoszenia zagrożenia. Dzięki temu na jednym wykresie można łatwo porównać procentową dynamikę wzrostów i spadków.
 * Wykres dynamiki zwrotu: Zestawienie wybranej spółki z szerokim rynkiem wizualnie uwypukla moment rozejścia się krzywych po przekroczeniu czerwonej linii oznaczającej wybuch epidemii.
 * Skok wolumenu i mapa cieplna: Wykres słupkowy dziennego wolumenu obrotu oraz miesięczna mapa cieplna stóp zwrotu _(tq_transmute())_ dokumentują gwałtowny napływ kapitału spekulacyjnego na wieść o chorobie.
 
@@ -71,7 +70,7 @@ Natomiast dla Johnson & Johnson sytuacja wygląda stabilnie, mimo że w Akcie 2 
 
 <img width="1470" height="901" alt="image" src="https://github.com/user-attachments/assets/5506cb7d-b266-4934-93fd-9902b1ab3671" />
 
-Wniosek płynący z zmiany perspektywy: Akt 3 obnaża fakt, że gdy temat choroby znika z mediów, większość mniejszych spółek biotechnologicznych doświadcza drastycznego załamania kursu, a ich pandemiczne wyceny okazują się jedynie pękniętą bańką giełdową. Kapitał i długoterminową wartość zatrzymują głównie zdywersyfikowane korporacje z grupy Big Pharma oraz dostawcy sprzętu laboratoryjnego.
+**Realne wnioski:** Zmiana perspektywy w Akcie 3 udowadnia, że pandemiczna hossa to dla mniejszych firm najczęściej krótkotrwała anomalia. Po wygaśnięciu medialnej paniki, spekulacyjne wyceny spółek biotechnologicznych (takie jak Moderna) drastycznie spadają, a realny kapitał i zyski długoterminowe zostają zabezpieczone w strukturach tradycyjnych gigantów z grupy Big Pharma (np. Johnson & Johnson).
 
 # 🛠️ Architektura i rozwiązanie techniczne
 
