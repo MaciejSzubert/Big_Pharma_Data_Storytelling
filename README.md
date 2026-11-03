@@ -2,23 +2,25 @@
 
 Projekt stanowi interaktywną aplikację analityczną zbudowaną w środowisku R Shiny, której fundamentem jest koncepcja Data Storytellingu (narracji danymi). Punkt wyjścia stanowi próba wizualnego uzasadnienia pytania badawczego: „Czy firmy z sektora Big Pharma oraz biotechnologii systemowo wzbogacają się na globalnych kryzysach zdrowotnych (pandemiach)?”.
 
-# 🎯 Założenia koncepcyjne: Narracja zamiast czystej eksploracji
+# 🎯 Narracja zamiast czystej eksploracji
 
 W przeciwieństwie do klasycznych narzędzi Business Intelligence czy eksploracyjnej analizy danych (EDA), celem tego projektu nie było poszukiwanie obiektywnej „prawdy” ukrytej w danych, lecz zaprezentowanie danych w sposób ściśle podporządkowany założonej a priori przez autorów tezie.
 
 Projekt został zaprojektowany jako studium przypadku pokazujące siłę perswazji wizualnej oraz tzw. efektu ramowania (framing effect):
 
-* Podporządkowanie pod założoną tezę: Dobór okien czasowych, punktów odniesienia oraz typów wizualizacji został skonstruowany tak, aby wywołać u odbiorcy konkretne wrażenie i poprowadzić go przez zaplanowaną ścieżkę argumentacji.
-* Te same dane, odmienne wnioski: Projekt udowadnia, że operując na dokładnie tym samym zbiorze historycznych notowań giełdowych z Yahoo Finance, można wysnuć skrajnie różne wnioski w zależności od sposobu ich agregacji i prezentacji.
-* Zderzenie perspektyw: Pierwsza część opowieści buduje obraz bezwzględnej hossy i spekulacyjnego bogacenia się na strachu, podczas gdy ostatnia część – bazując na tych samych szeregach czasowych – obala mit trwałych zysków dla większości innowacyjnych spółek.
+* Podporządkowanie pod założoną tezę okien czasowych, punktów odniesienia oraz typów wizualizacji został skonstruowany tak, aby wywołać u odbiorcy konkretne wrażenie i poprowadzić go przez zaplanowaną ścieżkę argumentacji.
+* Te same dane, odmienne wnioski pokazują, że operując na dokładnie tym samym zbiorze historycznych notowań giełdowych uzyskanych za pomocą Yahoo Finance, można wysnuć skrajnie różne wnioski w zależności od sposobu ich agregacji i prezentacji.
+* Pierwsza część opowieści buduje obraz bezwzględnej hossy i spekulacyjnego bogacenia się na strachu, podczas gdy ostatnia część - bazując na tych samych szeregach czasowych - obala mit trwałych zysków dla większości innowacyjnych spółek.
 
-# 🎭 Dlaczego format trzech aktów?
+<img width="241" height="277.5" alt="image" src="https://github.com/user-attachments/assets/ff501a9f-ec16-4330-b706-ef1774db7769" />
+
+# 🎭 3 Akty
 
 Zamiast tradycyjnego dashboardu, w którym wszystkie wskaźniki są widoczne jednocześnie, aplikacja adaptuje klasyczną, trzyaktową strukturę dramaturgiczną znaną z teatru, literatury i filmu. Zastosowanie takiego formatu pełni trzy kluczowe funkcje:
 
-1. Kontrola uwagi odbiorcy: Podział na zakładki (Akty) zapobiega szumowi informacyjnemu i pozwala autorom dawkować informacje w ściśle określonej kolejności.
-2. Budowanie napięcia narracyjnego: Użytkownik najpierw poznaje kontekst rynkowy, następnie obserwuje gwałtowny punkt zwrotny wywołany kryzysem, aż wreszcie konfrontuje swoje pierwotne wnioski z długoterminowym rozliczeniem.
-3. Edukacja przez kontrast: Zestawienie ze sobą Aktu 2 i Aktu 3 pokazuje w praktyce, jak łatwo ulec iluzji analitycznej, gdy obserwuje się wycinek danych wyrwany z szerszego kontekstu historycznego.
+1. Kontrola uwagi odbiorc
+2. Budowanie napięcia narracyjnego
+3. Demistyfikacja na końcu i pokazanie, jak łatwo ulec iluzji analitycznej, gdy obserwuje się wycinek danych wyrwany z szerszego kontekstu historycznego.
 
 # 📖 Struktura opowieści: Przewodnik po Aktach
 
@@ -31,7 +33,10 @@ Pierwszy akt pełni rolę ekspozycji, wprowadzając odbiorcę w architekturę ry
 * Diagnostyka (Wykrywanie chorób): Spółki takie jak Abbott, których przychody eksplodują w pierwszej fazie zagrożenia dzięki masowemu zapotrzebowaniu na testy.
 * Technologie i Sprzęt (Narzędzia badawcze): Dostawcy infrastruktury laboratoryjnej (np. Thermo Fisher, Danaher), którzy zarabiają na samym trwaniu wyścigu naukowego, niezależnie od tego, kto ostatecznie opracuje lek.
 
-Mechanizm wizualny: Interaktywna mapa drzewa wygenerowana za pomocą funkcji geom_treemap() prezentuje strukturę sił rynkowych. Wielkość kafelków nie jest wartością statyczną, lecz dynamicznie wyliczanym średnim dziennym obrotem giełdowym (close * volume) z ostatniego roku. Kliknięcie w wybrany podmiot odsłania karty informacyjne z aktualną wyceną i kontekstem historycznym spółki.
+Mechanizm wizualny: Interaktywna mapa drzewa wygenerowana za pomocą funkcji _geom_treemap()_ prezentuje strukturę sił rynkowych. Wielkość kafelków nie jest wartością statyczną, lecz dynamicznie wyliczanym średnim dziennym obrotem giełdowym _(close * volume)_ z ostatniego roku. Kliknięcie w wybrany podmiot odsłania karty informacyjne z aktualną wyceną i kontekstem historycznym spółki.
+
+<img width="1467" height="899" alt="image" src="https://github.com/user-attachments/assets/13bce189-3a08-497d-9029-27f5b55520d9" />
+
 
 ## Akt 2: Wybuch i Szok (Punkt Zapalny)
 
@@ -44,6 +49,8 @@ W tym akcie dane są celowo przefiltrowane i znormalizowane tak, aby udowodnić 
 * Skok wolumenu i mapa cieplna: Wykres słupkowy dziennego wolumenu obrotu oraz miesięczna mapa cieplna stóp zwrotu _(tq_transmute())_ dokumentują gwałtowny napływ kapitału spekulacyjnego na wieść o chorobie.
 
 Gdyby opowieść zakończyła się na Akcie 2, odbiorca wyszedłby z jednoznacznym przekonaniem, że każda pandemia to dla całego sektora medycznego gwarancja ponadprzeciętnych zysków.
+
+<img width="1469" height="901" alt="image" src="https://github.com/user-attachments/assets/35d7bfa2-f0e6-400b-a528-fbff4a356f67" />
 
 ## Akt 3: Pokłosie i Rozliczenie (Konfrontacja z rzeczywistością)
 
