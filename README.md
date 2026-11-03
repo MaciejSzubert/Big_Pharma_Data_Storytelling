@@ -12,28 +12,28 @@ Projekt został zaprojektowany jako studium przypadku pokazujące siłę perswaz
 * Te same dane, odmienne wnioski pokazują, że operując na dokładnie tym samym zbiorze historycznych notowań giełdowych uzyskanych za pomocą Yahoo Finance, można wysnuć skrajnie różne wnioski w zależności od sposobu ich agregacji i prezentacji.
 * Pierwsza część opowieści buduje obraz bezwzględnej hossy i spekulacyjnego bogacenia się na strachu, podczas gdy ostatnia część - bazując na tych samych szeregach czasowych - obala mit trwałych zysków dla większości innowacyjnych spółek.
 
-<img width="241" height="277.5" alt="image" src="https://github.com/user-attachments/assets/ff501a9f-ec16-4330-b706-ef1774db7769" />
+<img width="1470" height="902" alt="image" src="https://github.com/user-attachments/assets/dee7c6bb-0065-4ef9-8ed1-e1f1093738bc" />
 
 # 🎭 3 Akty
 
 Zamiast tradycyjnego dashboardu, w którym wszystkie wskaźniki są widoczne jednocześnie, aplikacja adaptuje klasyczną, trzyaktową strukturę dramaturgiczną znaną z teatru, literatury i filmu. Zastosowanie takiego formatu pełni trzy kluczowe funkcje:
 
-1. Kontrola uwagi odbiorc
-2. Budowanie napięcia narracyjnego
+1. Kontrola uwagi odbiorcy
+2. Kontrola i Budowanie napięcia narracyjnego
 3. Demistyfikacja na końcu i pokazanie, jak łatwo ulec iluzji analitycznej, gdy obserwuje się wycinek danych wyrwany z szerszego kontekstu historycznego.
 
 # 📖 Struktura opowieści: Przewodnik po Aktach
 
 ## Akt 1: Scena i Aktorzy (Ekspozycja)
 
-Pierwszy akt pełni rolę ekspozycji, wprowadzając odbiorcę w architekturę rynku medycznego zanim na osi czasu pojawi się jakikolwiek kryzys. Zamiast traktować branżę zdrowotną jako monolit, narracja dzieli 21 analizowanych podmiotów z pliku lista_firm.csv na cztery wyspecjalizowane podsektory o zupełnie innej dynamice biznesowej:
+Pierwszy akt pełni rolę ekspozycji, wprowadzając odbiorcę w strukturę rynku medycznego zanim na osi czasu pojawi się jakikolwiek kryzys. Zamiast traktować branżę zdrowotną jako monolit, narracja dzieli 21 uprzednio wybranych podmiotów z pliku lista_firm.csv na cztery wyspecjalizowane podsektory o zupełnie innej dynamice biznesowej:
 
 * Big Pharma (Dystrybucja i kapitał): Globalne koncerny posiadające potężne zaplecze produkcyjne, kapitałowe i dystrybucyjne, takie jak Pfizer czy Johnson & Johnson.
 * Biotechnologia (Innowacja i spekulacja): Mniejsze, zwinne podmioty naukowe żyjące z patentów, dotacji i obietnic przełomowych terapii (np. technologia mRNA), co czyni je podatnymi na bańki spekulacyjne.
 * Diagnostyka (Wykrywanie chorób): Spółki takie jak Abbott, których przychody eksplodują w pierwszej fazie zagrożenia dzięki masowemu zapotrzebowaniu na testy.
 * Technologie i Sprzęt (Narzędzia badawcze): Dostawcy infrastruktury laboratoryjnej (np. Thermo Fisher, Danaher), którzy zarabiają na samym trwaniu wyścigu naukowego, niezależnie od tego, kto ostatecznie opracuje lek.
 
-Mechanizm wizualny: Interaktywna mapa drzewa wygenerowana za pomocą funkcji _geom_treemap()_ prezentuje strukturę sił rynkowych. Wielkość kafelków nie jest wartością statyczną, lecz dynamicznie wyliczanym średnim dziennym obrotem giełdowym _(close * volume)_ z ostatniego roku. Kliknięcie w wybrany podmiot odsłania karty informacyjne z aktualną wyceną i kontekstem historycznym spółki.
+Interaktywna mapa drzewa wygenerowana za pomocą funkcji _geom_treemap()_ prezentuje strukturę sił rynkowych. Wielkość kafelków nie jest wartością statyczną, lecz dynamicznie wyliczanym średnim dziennym obrotem giełdowym _(close * volume)_ z ostatniego roku. Kliknięcie w wybrany podmiot odsłania karty informacyjne z aktualną wyceną i kontekstem historycznym spółki.
 
 <img width="1467" height="899" alt="image" src="https://github.com/user-attachments/assets/13bce189-3a08-497d-9029-27f5b55520d9" />
 
@@ -48,16 +48,28 @@ W tym akcie dane są celowo przefiltrowane i znormalizowane tak, aby udowodnić 
 * Wykres dynamiki zwrotu: Zestawienie wybranej spółki z szerokim rynkiem wizualnie uwypukla moment rozejścia się krzywych po przekroczeniu czerwonej linii oznaczającej wybuch epidemii.
 * Skok wolumenu i mapa cieplna: Wykres słupkowy dziennego wolumenu obrotu oraz miesięczna mapa cieplna stóp zwrotu _(tq_transmute())_ dokumentują gwałtowny napływ kapitału spekulacyjnego na wieść o chorobie.
 
-Gdyby opowieść zakończyła się na Akcie 2, odbiorca wyszedłby z jednoznacznym przekonaniem, że każda pandemia to dla całego sektora medycznego gwarancja ponadprzeciętnych zysków.
+Dla przykładu, Moderna zaliczyła ogromne zyski po wybuchu pandemii COVID-19, co można zauważyć przy dosłownym spłaszczeniu się wykresu dla indeksu S&P 500.
 
-<img width="1469" height="901" alt="image" src="https://github.com/user-attachments/assets/35d7bfa2-f0e6-400b-a528-fbff4a356f67" />
+<img width="1470" height="901" alt="image" src="https://github.com/user-attachments/assets/5b6d2f97-fcae-49c1-9092-fcc6eb7df5a4" />
+
+Gdyby opowieść zakończyła się na tym przykładzie, odbiorca wyszedłby z jednoznacznym przekonaniem, że każda pandemia to dla całego sektora medycznego gwarancja ponadprzeciętnych zysków. Jednak przypadek Johnson & Johnson przedstawia inną sytuację
+
+<img width="1470" height="899" alt="image" src="https://github.com/user-attachments/assets/982be3b2-3e2c-4778-bd6d-8218d52df21b" />
 
 ## Akt 3: Pokłosie i Rozliczenie (Konfrontacja z rzeczywistością)
 
-Trzeci akt dokonuje celowego zwrotu narracyjnego i rewiduje wnioski z Aktu 2, używając tych samych danych źródłowych, ale zmieniając zastosowaną miarę statystyczną oraz horyzont czasowy. Zamiast mierzyć wzrosty od „Dnia Zero”, aplikacja bada całe dostępne spektrum historyczne od 2000 roku i skupia się na wskaźniku obsunięcia kapitału od szczytu (Drawdown):
+Trzeci akt dokonuje celowego zwrotu narracyjnego i rewiduje wnioski z Aktu 2, dalej używając tych samych danych źródłowych. Zamiast jednak mierzyć wzrosty od „Dnia Zero”, aplikacja bada całe dane historyczne od 2000 roku (jeśli oczywiście dana spółka była wtedy notowana) i skupia się na wskaźniku obsunięcia kapitału od szczytu (Drawdown):
 
 * Głębokość tąpnięcia (Drawdown): Za pomocą funkcji _cummax(close)_ wyznaczany jest historyczny szczyt notowań, od którego liczona jest procentowa utrata wartości w każdym kolejnym dniu _((close / max_historic_close) - 1)_.
-* Wskaźnik retencji zysku: Wykres słupkowy zestawia ze sobą bezpośrednio wycenę na szczycie spekulacyjnej bańki z wyceną obecną.
+* Wskaźnik retencji zysku: Wykres słupkowy zestawiający ze sobą bezpośrednio wycenę na szczycie spekulacyjnej bańki z wyceną obecną.
+
+Kontynuując przypadek wybranych na początku firm, możemy zauważyć, że ogromny wzrost wartości dla Moderny nie sprawił, aby umocniła się ona na rynku. Jej aktualna wartość jest dwukrotnie mniejsza od szczytu bańki.
+
+<img width="1470" height="901" alt="image" src="https://github.com/user-attachments/assets/763faf32-433c-4cb8-88dd-0a4b7800b363" />
+
+Natomiast dla Johnson & Johnson sytuacja wygląda stabilnie, mimo że w Akcie 2 dane sugerowały co innego
+
+<img width="1470" height="901" alt="image" src="https://github.com/user-attachments/assets/5506cb7d-b266-4934-93fd-9902b1ab3671" />
 
 Wniosek płynący z zmiany perspektywy: Akt 3 obnaża fakt, że gdy temat choroby znika z mediów, większość mniejszych spółek biotechnologicznych doświadcza drastycznego załamania kursu, a ich pandemiczne wyceny okazują się jedynie pękniętą bańką giełdową. Kapitał i długoterminową wartość zatrzymują głównie zdywersyfikowane korporacje z grupy Big Pharma oraz dostawcy sprzętu laboratoryjnego.
 
